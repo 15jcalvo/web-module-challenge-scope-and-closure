@@ -61,6 +61,7 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+  A function is referred to as a closure if it has access to a value that is not accessible where said function is being called.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,8 +83,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+  "dansRoll();" is a closure because it uses the function nested within the 'personalDice' function.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+  Everything remains the same except a new random roll made.
 c. What is the lexical scope of `newRoll`? 
+  newRoll is within the function scope, personalDice scope, and global scope
 
 
 ### Task 3 - Stretch Goals
