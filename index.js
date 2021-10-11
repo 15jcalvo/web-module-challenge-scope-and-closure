@@ -63,21 +63,22 @@ Use the inning function below to do the following:
   
 NOTE: This will be a callback function for the tasks below
 */
-let random = Math.random();
-console.log(random)
-function inning(random){
-    if(random <= .333){
-      return 0;
-    }
-    else if(random > .333 && random <= .666){
-      return 1;
-    }
-    else if(random > .666){
-      return 2;
-    }
+
+function inning(){
+  let random = Math.random();
+  // console.log(random)
+  if(random <= .333){
+    return 0;
+  }
+  else if(random > .333 && random <= .666){
+    return 1;
+  }
+  else if(random > .666){
+    return 2;
+  }
 }
-inning(random);
-console.log(inning(random));
+inning();
+// console.log(inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -93,9 +94,25 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, inningsPlayed){
+  const scores = {
+    "Home": 0,
+    "Away": 0,
+  }
+  let homeScore = 0;
+  let awayScore = 0;
+  for(let i = 0; i < inningsPlayed; i++){
+    homeScore = homeScore + inning();
+  }
+  for(let i = 0; i < inningsPlayed; i++){
+    awayScore = awayScore + inning();
+  }
+  scores.Home = homeScore;
+  scores.Away = awayScore;
+  console.log(scores);
+  return scores;
 }
+finalScore(inning, 3);
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
