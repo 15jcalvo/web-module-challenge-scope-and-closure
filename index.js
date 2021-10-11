@@ -28,11 +28,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+    counter1 contains two functions while counter2 contains one.
   2. Which of the two uses a closure? How can you tell?
-  
+    counter2 uses closure because it calls a let which is included in its lexical scope but not the function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
+     counter2 be better?
+    counter1 is advantageous if you want to declare a let called 'count' in multiple contexts, counter2 is advantageous if you
+    want to refer to the same let called 'count' in multiple contexts.
 */
 
 // counter1 code
