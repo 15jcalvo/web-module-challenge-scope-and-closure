@@ -109,7 +109,7 @@ function finalScore(inning, inningsPlayed){
   }
   scores.Home = homeScore;
   scores.Away = awayScore;
-  console.log(scores);
+  // console.log(scores);
   return scores;
 }
 finalScore(inning, 9);
@@ -128,7 +128,7 @@ function getInningScore(inning) {
   let awayScore = inning();
   scores.Home = homeScore;
   scores.Away = awayScore;
-  console.log(scores);
+  // console.log(scores);
   return scores;
 }
 getInningScore(inning);
@@ -174,12 +174,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning, getInningScore, inningsPlayed) {
+  const allInnings = [];
+  let homeScoreTotal = 0;
+  let awayScoreTotal = 0;
+  for(let i = 0; i < inningsPlayed; i++){
+    const inningScore = getInningScore(inning);
+    homeScoreTotal = homeScoreTotal + inningScore.Home;
+    awayScoreTotal = awayScoreTotal + inningScore.Away;
+    allInnings.push("Inning " + i + ": Away " + inningScore.Away + " - Home " + inningScore.Home);
+  }
+  if(homeScoreTotal != awayScoreTotal){
+    allInnings.push("Final Score: Away " + awayScoreTotal + " - Home " + homeScoreTotal)
+  }
+  else{
+    allInnings.push("This game will require extra innings: Away " + awayScoreTotal + " - Home " + homeScoreTotal)
+  }
+  // console.log(allInnings[1]);
+  // console.log(allInnings[allInnings.length - 1]);
+  return allInnings;
 }
-
-
-
+scoreboard(inning, getInningScore, 9);
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
 function foo(){
